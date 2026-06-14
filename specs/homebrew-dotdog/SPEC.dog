@@ -1,0 +1,22 @@
+# SPEC — homebrew-dotdog
+
+> Homebrew tap for dotdog CLI. One formula. Zero config.
+
+## Product
+
+`brew install dotdog` — the macOS-native way to install dotdog. Formula downloads from npm, installs via Homebrew, tests with `--version`.
+
+### Flow
+
+```
+brew tap specdog/dotdog → brew install dotdog → dotdog --version → 0.3.5
+```
+
+## Architecture
+
+| Component | Role |
+|-----------|------|
+| Formula | Ruby file defining download URL, dependencies, install steps |
+| Tap | Git repo hosting the formula |
+| Homebrew | Package manager that reads taps and installs formulas |
+| npm | Source of the dotdog tarball |

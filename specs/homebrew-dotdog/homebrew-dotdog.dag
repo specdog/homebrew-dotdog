@@ -1,0 +1,101 @@
+{
+  "v": "1.4",
+  "p": "homebrew-dotdog",
+  "c": "dotdog@0.3.5",
+  "n": [
+    {
+      "i": "Formula",
+      "t": "entity",
+      "g": "entity",
+      "d": "A Ruby file that tells Homebrew how to install dotdog.",
+      "p": {
+        "name": "s!",
+        "version": "s!",
+        "url": "s!",
+        "sha256": "s!",
+        "dependencies": "j!"
+      },
+      "s": [
+        "draft",
+        "published",
+        "outdated"
+      ],
+      "l": [
+        "draft → published",
+        "published → outdated"
+      ]
+    },
+    {
+      "i": "Tap",
+      "t": "entity",
+      "g": "entity",
+      "d": "A Git repo containing formulas. Homebrew reads it as a package source.",
+      "p": {
+        "name": "s!",
+        "repo": "s!"
+      },
+      "s": [
+        "empty",
+        "populated"
+      ],
+      "l": [
+        "empty → populated"
+      ]
+    },
+    {
+      "i": "Install",
+      "t": "event",
+      "g": "entity",
+      "d": "A user installing dotdog via Homebrew.",
+      "p": {
+        "command": "s!",
+        "user": "s!",
+        "timestamp": "n!"
+      },
+      "s": [
+        "triggered",
+        "downloading",
+        "complete"
+      ],
+      "l": [
+        "triggered → downloading",
+        "downloading → complete"
+      ]
+    }
+  ],
+  "e": [
+    {
+      "s": "Tap",
+      "t": "Formula",
+      "v": "hosts",
+      "d": "Tap repo hosts the formula file",
+      "c": "1:N",
+      "r": true
+    },
+    {
+      "s": "Formula",
+      "t": "Install",
+      "v": "produces",
+      "d": "Formula is executed to produce an install",
+      "c": "1:N",
+      "r": true
+    },
+    {
+      "s": "Formula",
+      "t": "npm",
+      "v": "downloads",
+      "d": "Formula downloads dotdog tarball from npm registry",
+      "c": "1:1",
+      "r": true
+    }
+  ],
+  "tk": {
+    "m": "chars/4",
+    "st": 580,
+    "ct": 580,
+    "dt": 275,
+    "sv": 52.6,
+    "cs": 52.6,
+    "saved": 305
+  }
+}

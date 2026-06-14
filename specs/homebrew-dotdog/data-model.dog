@@ -1,0 +1,102 @@
+# Data Model — homebrew-dotdog
+
+## Entities
+
+### Entity: Formula
+
+A Ruby file that tells Homebrew how to install dotdog.
+
+```yaml
+entity: Formula
+type: entity
+properties:
+  name:
+    type: string
+    required: true
+  version:
+    type: string
+    required: true
+  url:
+    type: string
+    required: true
+  sha256:
+    type: string
+    required: false
+  dependencies:
+    type: json
+    required: true
+states: [draft, published, outdated]
+lifecycle: draft → published → outdated
+```
+
+### Entity: Tap
+
+A Git repo containing formulas. Homebrew reads it as a package source.
+
+```yaml
+entity: Tap
+type: entity
+properties:
+  name:
+    type: string
+    required: true
+  repo:
+    type: string
+    required: true
+states: [empty, populated]
+lifecycle: empty → populated
+```
+
+### Entity: Install
+
+A user installing dotdog via Homebrew.
+
+```yaml
+entity: Install
+type: event
+properties:
+  command:
+    type: string
+    required: true
+  user:
+    type: string
+    format: string
+    required: false
+  timestamp:
+    type: number
+    required: true
+states: [triggered, downloading, complete]
+lifecycle: triggered → downloading → complete
+```
+
+## Relationships
+
+### Relationship: Tap → Formula
+
+```yaml
+relationship: Tap -> Formula
+verb: hosts
+cardinality: 1:N
+required: true
+description: Tap repo hosts the formula file
+```
+
+### Relationship: Formula → Install
+
+```yaml
+relationship: Formula -> Install
+verb: produces
+cardinality: 1:N
+required: true
+description: Formula is executed to produce an install
+```
+
+### Relationship: Formula → npm
+
+```yaml
+relationship: Formula -> npm
+verb: downloads
+cardinality: 1:1
+required: true
+description: Formula downloads dotdog tarball from npm registry
+```
