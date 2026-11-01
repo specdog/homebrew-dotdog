@@ -25,3 +25,7 @@ This repo is spec'd with dotdog itself. See [specs/homebrew-dotdog/](specs/homeb
 - [dotdog homepage](https://specdog.github.io/dotdog)
 - [dotdog on GitHub](https://github.com/specdog/dotdog)
 - [dotdog on npm](https://www.npmjs.com/package/dotdog)
+
+## Author
+
+A specdog project by **[Justin DiClemente](https://github.com/logohere)**.
