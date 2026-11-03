@@ -1,17 +1,19 @@
 class Dotdog < Formula
   desc "Write .dog specs, compile .dag graphs, query via MCP"
   homepage "https://specdog.github.io/dotdog"
-  url "https://registry.npmjs.org/dotdog/-/dotdog-0.3.5.tgz"
+  url "https://registry.npmjs.org/dotdog/-/dotdog-1.0.0.tgz"
+  sha256 "ec66261ab2127225ebe0167ff88d661d566291eb577a6ae0931fab128093da97"
   license "MIT"
 
   depends_on "node"
 
   def install
-    system "npm", "install", "--global", "--prefix", libexec, "dotdog@0.3.5"
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
-    system "#{bin}/dotdog", "--version"
+    assert_equal "#{version}\n", shell_output("#{bin}/dotdog --version")
+    assert_equal "#{version}\n", shell_output("#{bin}/spec --version")
   end
 end

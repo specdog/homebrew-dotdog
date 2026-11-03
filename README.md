@@ -5,10 +5,12 @@ Homebrew tap for [dotdog](https://specdog.github.io/dotdog) — CLI for structur
 ## Install
 
 ```bash
-brew tap specdog/dotdog
-brew install dotdog
+brew install specdog/tap/dotdog
 dotdog --version
 ```
+
+Use `specdog/tap` for new installations. This older tap retains the same
+checksum-pinned Dotdog 1.0.0 package for existing users.
 
 ## What's in this repo
 
